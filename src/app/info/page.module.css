@@ -1,0 +1,79 @@
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.section {
+  width: 55%;
+  margin: 20px auto 0;
+}
+
+.section h2 {
+  font-size: 25px;
+
+  margin-bottom: 10px;
+}
+
+.section p {
+  font-size: 18px;
+}
+.socials {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+.socials li {
+  font-size: 20px;
+
+  position: relative;
+
+  padding-left: 35px;
+  display: flex;
+}
+
+.socials li a {
+  position: relative;
+}
+
+.socials li:nth-of-type(1)::before,
+.socials li:nth-of-type(2)::before,
+.socials li:nth-of-type(3)::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  width: 30px;
+  height: 30px;
+
+  content: "";
+  transform: translateY(-50%);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.socials li:nth-of-type(1)::before {
+  background-image: url("/icons/mailbox-dark.svg");
+}
+.socials li:nth-of-type(2)::before {
+  background-image: url("/icons/tg-dark.svg");
+}
+.socials li:nth-of-type(3)::before {
+  background-image: url("/icons/inst-dark.svg");
+}
+
+.socials li .copy {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  background-image: url("/icons/copy.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -2.5px;
+}
+
+.copy .alert {
+  position: absolute;
+  left: 100%;
+}
