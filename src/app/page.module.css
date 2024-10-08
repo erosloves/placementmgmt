@@ -1,68 +1,103 @@
-.home {
-  height: calc(100vh - 100px);
-}
-
-.home video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* z-index: 9; */
-}
-
 .promo {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  background-color: var(--main-black);
-  overflow: hidden;
-}
-.ticker {
-  position: absolute;
-  width: 100%;
-  height: 50px;
-  /* background-color: var(--main-black); */
-  z-index: 11;
-  font-size: 35px;
-  color: #c1c0c0ab;
-  font-family: "Protest Strike", sans-serif;
-  text-wrap: nowrap;
-
+  height: calc(100vh - 100px);
   display: flex;
+  justify-content: center;
   align-items: center;
+  font-size: 50px;
+  position: relative;
 }
 
-.ticker:nth-of-type(1) {
+.promo_item {
+  cursor: pointer;
+  font-family: "Russo One", sans-serif;
+}
+
+.promo_item:hover {
+  color: #777;
+}
+
+.popup {
+  position: absolute;
   left: 0;
   top: 0;
-}
-.ticker:nth-of-type(2) {
-  left: 0;
-  bottom: 0;
-}
-
-.layout {
-  position: fixed;
-  z-index: 10;
-  background: #362009ab;
-
+  font-size: 40px;
   width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+.popup > * {
+  margin-bottom: 1.5%;
 }
 
-.ticker_item {
-  display: inline-block;
-  white-space: nowrap; /* Запрещаем перенос строк */
-  animation: ticker-animation 5s linear infinite;
+.popup form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 10px;
+  /* margin-bottom: 25px; */
+  position: relative;
 }
 
-@keyframes ticker-animation {
-  0% {
-    transform: translateX(100%); /* Текст стартует с правой стороны */
-  }
-  100% {
-    transform: translateX(-100%); /* Двигается влево за пределы контейнера */
-  }
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup .data {
+  padding: 10px 5px;
+  border: none;
+  background: transparent;
+  border-bottom: 1px #111 solid;
+  outline: none;
+  font-size: 25px;
+}
+
+.popup button {
+  border-radius: 25px;
+  padding: 5px 10px;
+  background-color: #000;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  width: 50%;
+}
+
+.add {
+  /* margin-bottom: 40px; */
+}
+
+.popup_item {
+  display: flex;
+  width: 50%;
+  /* margin-bottom: 10px; */
+}
+
+.checkbox {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.checkbox input {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.img_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.img_container img {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  object-fit: cover;
 }
