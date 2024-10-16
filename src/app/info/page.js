@@ -48,22 +48,11 @@ export default function Home() {
           exceptional creative talent.
         </p>
         <p>
-          Our journey began in 1987 when Sarah Doukas founded the agency in her
-          home. Sarah revolutionised the traditional modelling industry by
-          launching the first UK agency to represent, worldwide, new faces Sarah
-          had discovered herself and this became the agency's hallmark. 1988 is
-          remembered as the year Sarah changed the fashion industry when she
-          spotted Kate Moss at JFK Airport in New York City. Since then we've
-          been a touchstone for scouting and launching a diverse array of models
-          and talent into the spotlight.
-        </p>
-        <p>
-          Sarah & her brother, Simon Chambers, run the agency together to offer
-          360-degree management based on the fundamental principles of strategy,
-          opportunity, and ownership. Over time they diversified the business
-          into areas such as social media representation & brand development to
-          enable the talent to maximise their career potential. Matching client
-          brands
+          We are a scouting agency specializing in the finding and placement
+          unique Faces for modeling agencies and placement for brands around the
+          world Our agency provides scouting services in the form of finding you
+          a modeling agency or Parent Agency services - where placement
+          management acts as your agency
         </p>
       </section>
     </div>
