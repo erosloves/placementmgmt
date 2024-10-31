@@ -1,0 +1,128 @@
+.burgerMenu {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.span {
+  width: 100%;
+  height: 1.7px;
+  transition: all 300ms ease-in-out;
+  opacity: 1;
+  background-color: rgb(104, 104, 104);
+}
+
+.span_active {
+  height: 2px;
+  transition: all 300ms ease-in-out;
+  opacity: 1;
+  background-color: rgb(104, 104, 104);
+}
+
+.span_active:nth-of-type(1) {
+  width: 50%;
+  transform: rotate(45deg) translateX(50%);
+}
+.span_active:nth-of-type(2) {
+  transform: translateY(-6px);
+  animation: opacity 300ms forwards;
+}
+.span_active:nth-of-type(3) {
+  transform: translateY(6px);
+  animation: opacity 300ms forwards;
+}
+.span_active:nth-of-type(4) {
+  width: 50%;
+  transform: rotate(-45deg) translateX(50%);
+}
+.span:nth-of-type(2) {
+  animation: opacityDisable 300ms forwards;
+}
+.span:nth-of-type(3) {
+  animation: opacityDisable 300ms forwards;
+}
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes opacityDisable {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.burgerMenu:hover .span {
+  background-color: #333;
+}
+
+.social {
+  position: absolute;
+  top: 40px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: all 350ms ease-in-out;
+}
+
+.social svg {
+  width: 20px;
+  height: 20px;
+  transition: all ease 300ms;
+  fill: #888;
+}
+.social:hover svg {
+  fill: #222;
+}
+
+.social {
+  right: 90px;
+  scale: 1.25;
+}
+
+/* .social:nth-of-type(1) {
+  right: 130px;
+}
+.social:nth-of-type(2) {
+  right: 90px;
+  scale: 1.25;
+} */
+
+@media screen and (max-width: 990px) {
+  /* .social:nth-of-type(1) {
+    right: 70px;
+  }
+  .social:nth-of-type(2) {
+    right: 30px;
+  } */
+  .social {
+    right: 30px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* .social:nth-of-type(1) {
+    right: 40px;
+    scale: 0.9;
+  }
+  .social:nth-of-type(2) {
+    right: 15px;
+    scale: 1;
+  } */
+  .social {
+    right: 15px;
+    scale: 1;
+  }
+}

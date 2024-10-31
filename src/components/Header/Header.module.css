@@ -16,6 +16,19 @@
   font-size: 40px;
 }
 
+@media screen and (max-width: 520px) {
+  .pm {
+    font-size: 35px;
+    padding: 2.5px 0;
+  }
+}
+@media screen and (max-width: 460px) {
+  .pm {
+    font-size: 30px;
+    padding: 5px 0;
+  }
+}
+
 .header_container {
   width: 50%;
   margin: 0 auto;
@@ -54,4 +67,10 @@
 .link_wrapper a:hover,
 .sublink_wrapper a:hover {
   background-color: rgb(221, 221, 221, 0.5);
+}
+
+/* nav_wrapper_touch */
+
+.nav_wrapper_touch {
+  position: relative;
 }
