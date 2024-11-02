@@ -13,6 +13,7 @@ export default function Transition({ children }) {
   return (
     <FacesContextProvider value={{ isCat, setCat }}>
       <Header />
+
       <div className="container">
         <AnimatePresence mode="wait">
           <motion.main

@@ -4,6 +4,7 @@
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   gap: 45px;
+  /* position: relative; */
 }
 
 .card {
@@ -79,4 +80,16 @@
   .img_wrapper {
     height: 100%;
   }
+}
+
+/* fa_wrapper */
+
+.fa_wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  z-index: 100;
 }

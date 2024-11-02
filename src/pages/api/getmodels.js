@@ -1,14 +1,19 @@
 export default function handler(req, res) {
   // Данные, которые нужно вернуть в JSON формате
-  const { cat } = req.query;
-  let paths = calcPaths(cat, cards);
-
-  const data = {
-    paths: paths,
-  };
-
-  // Возвращаем JSON-ответ
-  res.status(200).json(data);
+  const { cat, id } = req.query;
+  if (cat) {
+    let paths = calcPaths(cat, cards);
+    const data = {
+      paths: paths,
+    };
+    res.status(200).json(data);
+  }
+  if (id) {
+    const data = {
+      faceData: findById(id),
+    };
+    res.status(200).json(data);
+  }
 }
 
 const calcPaths = (cat, cards) => {
@@ -19,6 +24,15 @@ const calcPaths = (cat, cards) => {
   });
 };
 
+const findById = (id) => {
+  const temp = cards.filter((el) => {
+    if (el.id == id) {
+      return el;
+    }
+  });
+  return temp[0];
+};
+
 const cards = [
   {
     src: "/faces/edward/IMG_6480 (2).JPG",
@@ -26,6 +40,19 @@ const cards = [
     title: "Edward",
     id: 1,
     cat: "sfa",
+    byAgency: "The Dragon MM",
+    instOfAgency: "thedragonmm",
+    mailToAgency: "pavel@thedragonmm.com",
+    www: "https://thedragonmm.com",
+    params: {
+      height: "190",
+      bust: "90",
+      waist: "90",
+      hips: "90",
+      eyes: "green",
+      hair: "dark blond",
+      shoes: "44",
+    },
   },
   {
     src: "/faces/diana_zvereva/IMG_6457.JPG",
@@ -33,6 +60,18 @@ const cards = [
     title: "Diana Zvereva",
     id: 2,
     cat: "sfa",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/artemii/IMG_6314.PNG",
@@ -40,6 +79,18 @@ const cards = [
     title: "Artemii",
     id: 3,
     cat: "of",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/muza/muza.png",
@@ -47,6 +98,18 @@ const cards = [
     title: "Muza",
     id: 4,
     cat: "sfa",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/eldar/IMG_6348.JPEG",
@@ -54,6 +117,18 @@ const cards = [
     title: "Eldar",
     id: 5,
     cat: "sfa",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/lessy/photo_2024-10-04_22-19-06.jpg",
@@ -61,6 +136,18 @@ const cards = [
     title: "Lessy",
     id: 6,
     cat: "sfa",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/vesta/photo_2_2024-10-04_22-19-43.jpg",
@@ -68,6 +155,18 @@ const cards = [
     title: "Vesta",
     id: 8,
     cat: "sfa",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/bogdan/IMG_6308.JPG",
@@ -75,6 +174,18 @@ const cards = [
     title: "Bogdan",
     id: 7,
     cat: "nf",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/sasha_rowan/IMG_6484.JPG",
@@ -82,6 +193,18 @@ const cards = [
     title: "Sasha Ryabini",
     id: 9,
     cat: "sfa",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/Ally/",
@@ -89,6 +212,18 @@ const cards = [
     title: "Ally",
     id: 11,
     cat: "nf",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/Serj/",
@@ -96,6 +231,18 @@ const cards = [
     title: "Serj",
     id: 12,
     cat: "nf",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/Arthur/",
@@ -103,6 +250,18 @@ const cards = [
     title: "Arthur",
     id: 13,
     cat: "of",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/Jean/",
@@ -110,6 +269,18 @@ const cards = [
     title: "Jean",
     id: 14,
     cat: "sfa",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/Anastasia/",
@@ -117,6 +288,18 @@ const cards = [
     title: "Anastasia",
     id: 15,
     cat: "of",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/Timofey/",
@@ -124,6 +307,18 @@ const cards = [
     title: "Timofey",
     id: 15,
     cat: "nf",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/Vadim-u/",
@@ -131,6 +326,18 @@ const cards = [
     title: "Vadim u",
     id: 16,
     cat: "nf",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/Elles-Elisabeth/",
@@ -138,6 +345,18 @@ const cards = [
     title: "Elles & Elisabeth",
     id: 17,
     cat: "nf",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/Ilya/",
@@ -145,6 +364,18 @@ const cards = [
     title: "Ilya",
     id: 18,
     cat: "nf",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
   {
     src: "/faces/Kirill/",
@@ -152,5 +383,17 @@ const cards = [
     title: "Kirill",
     id: 19,
     cat: "nf",
+    byAgency: "",
+    instOfAgency: "",
+    mailToAgency: "",
+    params: {
+      height: "",
+      bust: "",
+      waist: "",
+      hips: "",
+      eyes: "",
+      hair: "",
+      shoes: "",
+    },
   },
 ];

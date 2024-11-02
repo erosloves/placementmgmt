@@ -7,6 +7,7 @@ import { facesContext } from "@/contexts/faces";
 export default function Page() {
   const { isCat } = useContext(facesContext);
   const [cards, setCards] = useState([]);
+
   useEffect(() => {
     const getPageData = async () => {
       const apiUrlEndpoint = `/api/getmodels?cat=${isCat}`;
@@ -14,16 +15,15 @@ export default function Page() {
         method: "GET",
       })
         .then((response) => response.json())
-        .then(setCards([]))
         .then((json) => {
           setCards(json.paths);
         });
     };
     getPageData();
   }, [isCat]);
-
+  const faceCardHandler = (id) => {};
   return (
-    <div className={css.cards_wrapper}>
+    <div className={css.cards_wrapper} key={JSON.stringify(cards)}>
       <AnimatePresence>
         {cards.map((el, i) => {
           return (
@@ -33,6 +33,8 @@ export default function Page() {
               alt={el.alt}
               title={el.title}
               n={i}
+              id={el.id}
+              faceCardHandler={faceCardHandler}
             />
           );
         })}
@@ -41,7 +43,7 @@ export default function Page() {
   );
 }
 
-const FaceCard = ({ src, alt, title, n }) => {
+const FaceCard = ({ src, alt, title, n, id, faceCardHandler }) => {
   const vars = {
     // visible: (i) => ({
     //   opacity: i * 0.2
@@ -58,19 +60,23 @@ const FaceCard = ({ src, alt, title, n }) => {
     },
   };
   return (
-    <motion.div
+    <motion.a
       initial={"hidden"}
-      whileInView={"visible"}
+      animate={"visible"}
       exit={"exit"}
       variants={vars}
       custom={n++}
       className={css.card}
       viewport={{ amount: 0.1, once: true }}
+      onClick={() => {
+        faceCardHandler(id);
+      }}
+      href={`/faces/${id}`}
     >
       <div className={css.img_wrapper}>
         <img src={src} alt={alt} />
       </div>
       <span className={css.title}>{title}</span>
-    </motion.div>
+    </motion.a>
   );
 };

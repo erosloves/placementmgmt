@@ -1,0 +1,16 @@
+.page {
+  display: flex;
+}
+.slider_wrapper {
+  width: 900px;
+  height: 600px;
+  background: #000;
+}
+.bio {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 30px;
+}

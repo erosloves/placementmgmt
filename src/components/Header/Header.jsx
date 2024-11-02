@@ -6,50 +6,26 @@ import { facesContext } from "@/contexts/faces";
 import { AnimatePresence, motion } from "framer-motion";
 import useIsTouchScreen from "@/hooks/useIsTouchScreen";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+
 export default function Header() {
-  const [isMenuActive, setMenuActive] = useState({
-    link: true,
-    sublink: false,
+  const [sublinks, setSublinks] = useState({
+    title: undefined,
+    case: undefined,
   });
-  const [sublinks, setSublinks] = useState();
 
   const { setCat } = useContext(facesContext);
 
   const hoverMenuHandler = (key) => {
     switch (key) {
       case "faces":
-        setSublinks([
-          {
-            title: "Our faces",
-            cat: "of",
-          },
-          {
-            title: "Scouted for Agency",
-            cat: "sfa",
-          },
-          {
-            title: "New faces",
-            cat: "nf",
-          },
-        ]);
-        setMenuActive({ link: false, sublink: true });
+        setSublinks({ case: "faces" });
         break;
       case "production":
-        setSublinks([
-          {
-            href: "/production?creators=egor-digitals",
-            title: "Egor Digitals",
-          },
-          {
-            // Добавить здесь ссылку
-            href: "#",
-            title: "Creators",
-          },
-        ]);
-        setMenuActive({ link: false, sublink: true });
+        setSublinks({ case: "production" });
+
         break;
-      case "submenuoff":
-        setMenuActive({ link: true, sublink: false });
+      case "disable":
+        setSublinks({ case: null });
         break;
       default:
         break;
@@ -60,80 +36,108 @@ export default function Header() {
     disabled: { opacity: 0 },
     enabled: { opacity: 1 },
   };
-  const isScreen = useIsTouchScreen();
+
+  const isTouchScreen = useIsTouchScreen();
+  const [burgerOpen, setBurgerOpen] = useState(true);
   return (
     <header className={css.header}>
       <Link href={"/"} className={css.pm}>
         Placement Management
       </Link>
       <div
-        className={isScreen ? css.header_container_touch : css.header_container}
+        className={
+          isTouchScreen ? css.header_container_touch : css.header_container
+        }
       >
         <AnimatePresence>
-          {isScreen && (
+          {isTouchScreen && (
             <div className={css.nav_wrapper_touch}>
-              <BurgerMenu />
+              <BurgerMenu state={{ burgerOpen, setBurgerOpen }} />
+              <AnimatePresence>
+                {burgerOpen && (
+                  <motion.div
+                    variants={variants}
+                    initial="disabled"
+                    animate="enabled"
+                    exit="disabled"
+                    className={css.nav_wrapper_touch_layout}
+                  >
+                    <div className={css.link_item}>
+                      <Link href={"faces"}>Faces</Link>
+                    </div>
+                    <div className={css.link_item}>
+                      <Link href={"info"}>Info</Link>
+                    </div>
+                    <div className={css.link_item}>
+                      <Link href={"production"}>Production</Link>
+                    </div>
+                    <div className={css.link_item}>
+                      <Link href={"service"}>Service</Link>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           )}
-          {!isScreen && (
+        </AnimatePresence>
+        <AnimatePresence>
+          {!isTouchScreen && (
             <div className={css.nav_wrapper}>
-              {isMenuActive.link && (
-                <motion.div
-                  className={css.link_wrapper}
-                  variants={variants}
-                  initial="disabled"
-                  animate="enabled"
-                  exit="disabled"
-                >
-                  <Link
-                    href={"faces"}
-                    onMouseOver={() => {
-                      hoverMenuHandler("faces");
-                    }}
-                    className={css.link_item}
-                  >
-                    Faces
-                  </Link>
-                  <Link href={"info"} className={css.link_item}>
-                    Info
-                  </Link>
-                  <Link
-                    href={"production"}
-                    onMouseOver={() => {
-                      hoverMenuHandler("production");
-                    }}
-                    className={css.link_item}
-                  >
-                    Production
-                  </Link>
-                  <Link href={"service"} className={css.link_item}>
-                    Service
-                  </Link>
-                </motion.div>
-              )}
-              {isMenuActive.sublink && (
-                <motion.div
-                  className={css.sublink_wrapper}
-                  onMouseLeave={() => hoverMenuHandler("submenuoff")}
-                  variants={variants}
-                  initial="disabled"
-                  animate="enabled"
-                  exit="disabled"
-                >
-                  {sublinks.map((el, i) => {
-                    return (
-                      <Link
-                        key={i}
-                        onClick={() => setCat(el.cat)}
-                        className={css.sublink_item}
-                        href={"/faces"}
-                      >
-                        {el.title}
+              <motion.div
+                className={css.link_wrapper}
+                variants={variants}
+                initial="disabled"
+                animate="enabled"
+                exit="disabled"
+              >
+                {links.map((el, i) => {
+                  return (
+                    <div
+                      className={css.link_item}
+                      onMouseLeave={() => {
+                        hoverMenuHandler("disable");
+                      }}
+                      onMouseOver={() => {
+                        hoverMenuHandler(el.case);
+                      }}
+                      key={i}
+                    >
+                      <Link href={el.case} className={css.link_item_text}>
+                        {el.case}
                       </Link>
-                    );
-                  })}
-                </motion.div>
-              )}
+                      <AnimatePresence>
+                        {sublinks.case === el.case && (
+                          <motion.div
+                            variants={variants}
+                            initial="disabled"
+                            animate="enabled"
+                            exit="disabled"
+                            onMouseLeave={() => {
+                              hoverMenuHandler("disable");
+                            }}
+                            className={css.sublink_item}
+                          >
+                            {el.sublinks.map((el, i) => {
+                              return (
+                                <Link
+                                  href={el.href}
+                                  className={css}
+                                  key={i}
+                                  onClick={() => {
+                                    setCat(el.cat);
+                                  }}
+                                >
+                                  {el.text}
+                                </Link>
+                              );
+                            })}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </motion.div>
             </div>
           )}
         </AnimatePresence>
@@ -141,3 +145,33 @@ export default function Header() {
     </header>
   );
 }
+
+const links = [
+  {
+    case: "faces",
+    sublinks: [
+      { href: "/faces", text: "Our faces", cat: "of" },
+      {
+        href: "/faces",
+        text: "Scouted for Agency",
+        cat: "sfa",
+      },
+      { href: "/faces", text: "New faces", cat: "nf" },
+    ],
+  },
+  {
+    case: "info",
+    sublinks: [],
+  },
+  {
+    case: "production",
+    sublinks: [
+      { href: "/production?creators=egor-digitals", text: "Egor Digitals" },
+      { href: "/production?creators=creators", text: "Creators" },
+    ],
+  },
+  {
+    case: "service",
+    sublinks: [],
+  },
+];

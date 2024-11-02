@@ -3,8 +3,9 @@ import Link from "next/link";
 import styles from "./BurgerMenu.module.css";
 import { useState } from "react";
 
-const BurgerMenu = ({ children }) => {
-  const [burgerOpen, setBurgerOpen] = useState(true);
+const BurgerMenu = ({ state }) => {
+  const { burgerOpen, setBurgerOpen } = state;
+
   const toggleBurgerMenu = () => {
     setBurgerOpen(!burgerOpen);
   };
