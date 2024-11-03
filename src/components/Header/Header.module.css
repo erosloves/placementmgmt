@@ -163,7 +163,7 @@
     padding: 5px 0;
   }
   .nav_wrapper_touch_layout {
-    top: 48px;
+    top: 45.5px;
   }
   .link_item,
   .sublink_item {
@@ -176,7 +176,7 @@
     padding: 5px 0;
   }
   .nav_wrapper_touch_layout {
-    top: 48px;
+    top: 42px;
   }
 }
 @media screen and (max-width: 400px) {
@@ -185,7 +185,7 @@
     padding: 5px 0;
   }
   .nav_wrapper_touch_layout {
-    top: 48px;
+    top: 40px;
   }
 }
 @media screen and (max-width: 380px) {
@@ -193,17 +193,11 @@
     font-size: 22px;
     padding: 6px 0;
   }
-  .nav_wrapper_touch_layout {
-    top: 48px;
-  }
 }
 @media screen and (max-width: 360px) {
   .pm {
     font-size: 20px;
     padding: 7px 0;
-  }
-  .nav_wrapper_touch_layout {
-    top: 48px;
   }
 }
 @media screen and (max-width: 340px) {
@@ -212,15 +206,12 @@
     padding: 8px 0;
   }
   .nav_wrapper_touch_layout {
-    top: 48px;
+    top: 39px;
   }
 }
 @media screen and (max-width: 320px) {
   .pm {
     font-size: 16px;
     padding: 9px 0;
-  }
-  .nav_wrapper_touch_layout {
-    top: 48px;
   }
 }
