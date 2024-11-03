@@ -4,7 +4,7 @@ import { useState } from "react";
 import Header from "@/components/Header/Header";
 import { FacesContextProvider, chooseCategory } from "@/contexts/faces";
 export default function Transition({ children }) {
-  const [isCat, setCat] = useState("sfa");
+  const [isCat, setCat] = useState("all");
 
   const templateVariants = {
     initial: { opacity: 0, y: 10 },

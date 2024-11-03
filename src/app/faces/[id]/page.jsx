@@ -33,6 +33,13 @@ const Page = ({ params }) => {
           <div className={css.title}>
             Scouted for Agency: {dataToRender.byAgency}
           </div>
+
+          {dataToRender.www && <a href={dataToRender.www}>website</a>}
+          {dataToRender.mailToAgency && (
+            <a href={`mailto:${dataToRender.mailToAgency}`}>
+              {dataToRender.mailToAgency}
+            </a>
+          )}
           {dataToRender.instOfAgency && (
             <div>
               <a href={`https://instagram.com/${dataToRender.instOfAgency}`}>
@@ -47,12 +54,6 @@ const Page = ({ params }) => {
                 </svg>
               </a>
             </div>
-          )}
-          {dataToRender.www && <a href={dataToRender.www}>go to website</a>}
-          {dataToRender.mailToAgency && (
-            <a href={`mailto:${dataToRender.mailToAgency}`}>
-              mail to Agency: {dataToRender.mailToAgency}
-            </a>
           )}
         </div>
       )}

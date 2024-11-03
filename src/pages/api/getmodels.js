@@ -17,11 +17,15 @@ export default function handler(req, res) {
 }
 
 const calcPaths = (cat, cards) => {
-  return cards.filter((el) => {
-    if (el.cat == cat) {
-      return cat;
-    }
-  });
+  if (cat == "all") {
+    return cards;
+  } else {
+    return cards.filter((el) => {
+      if (el.cat == cat) {
+        return cat;
+      }
+    });
+  }
 };
 
 const findById = (id) => {
@@ -78,7 +82,7 @@ const cards = [
     alt: "Artemii",
     title: "Artemii",
     id: 3,
-    cat: "of",
+    cat: "sfa",
     byAgency: "",
     instOfAgency: "",
     mailToAgency: "",
@@ -249,7 +253,7 @@ const cards = [
     alt: "Arthur",
     title: "Arthur",
     id: 13,
-    cat: "of",
+    cat: "sfa",
     byAgency: "",
     instOfAgency: "",
     mailToAgency: "",
@@ -287,7 +291,7 @@ const cards = [
     alt: "Anastasia",
     title: "Anastasia",
     id: 15,
-    cat: "of",
+    cat: "sfa",
     byAgency: "",
     instOfAgency: "",
     mailToAgency: "",

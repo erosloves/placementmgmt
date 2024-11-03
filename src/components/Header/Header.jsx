@@ -4,8 +4,9 @@ import css from "./Header.module.css";
 import { useContext, useState } from "react";
 import { facesContext } from "@/contexts/faces";
 import { AnimatePresence, motion } from "framer-motion";
-import useIsTouchScreen from "@/hooks/useIsTouchScreen";
+// import useIsTouchScreen from "@/hooks/useIsTouchScreen";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import { isMobile } from "react-device-detect";
 
 export default function Header() {
   const [sublinks, setSublinks] = useState({
@@ -22,7 +23,6 @@ export default function Header() {
         break;
       case "production":
         setSublinks({ case: "production" });
-
         break;
       case "disable":
         setSublinks({ case: null });
@@ -37,8 +37,14 @@ export default function Header() {
     enabled: { opacity: 1 },
   };
 
-  const isTouchScreen = useIsTouchScreen();
-  const [burgerOpen, setBurgerOpen] = useState(true);
+  const burgerVariants = {
+    disabled: { opacity: 0, x: -100 },
+    enabled: { opacity: 1, x: 0 },
+  };
+
+  // const isTouchScreen = useIsTouchScreen();
+  const isTouchScreen = isMobile;
+  const [burgerOpen, setBurgerOpen] = useState(false);
   return (
     <header className={css.header}>
       <Link href={"/"} className={css.pm}>
@@ -56,24 +62,47 @@ export default function Header() {
               <AnimatePresence>
                 {burgerOpen && (
                   <motion.div
-                    variants={variants}
+                    variants={burgerVariants}
                     initial="disabled"
                     animate="enabled"
                     exit="disabled"
+                    transition={{ duration: 0.2 }}
                     className={css.nav_wrapper_touch_layout}
                   >
-                    <div className={css.link_item}>
-                      <Link href={"faces"}>Faces</Link>
-                    </div>
-                    <div className={css.link_item}>
-                      <Link href={"info"}>Info</Link>
-                    </div>
-                    <div className={css.link_item}>
-                      <Link href={"production"}>Production</Link>
-                    </div>
-                    <div className={css.link_item}>
-                      <Link href={"service"}>Service</Link>
-                    </div>
+                    {links.map((el, i) => {
+                      return (
+                        <>
+                          <Link
+                            href={el.case}
+                            className={`${css.link_item} ${css.link_item_text}`}
+                            key={i}
+                            onClick={() => {
+                              if (el.case == "faces") {
+                                setCat("all");
+                              } else return;
+                              setBurgerOpen(false);
+                            }}
+                          >
+                            {el.case}
+                          </Link>
+                          {el.sublinks.length > 0 &&
+                            el.sublinks.map((el, i) => {
+                              return (
+                                <div
+                                  className={`${css.link_item} ${css.sublink_item_touch} `}
+                                  key={i}
+                                  onClick={() => {
+                                    setCat(el.cat);
+                                    setBurgerOpen(false);
+                                  }}
+                                >
+                                  {el.text}
+                                </div>
+                              );
+                            })}
+                        </>
+                      );
+                    })}
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -102,7 +131,15 @@ export default function Header() {
                       }}
                       key={i}
                     >
-                      <Link href={el.case} className={css.link_item_text}>
+                      <Link
+                        href={`/${el.case}`}
+                        className={css.link_item_text}
+                        onClick={() => {
+                          if (el.case == "faces") {
+                            setCat("all");
+                          } else return;
+                        }}
+                      >
                         {el.case}
                       </Link>
                       <AnimatePresence>
@@ -121,7 +158,6 @@ export default function Header() {
                               return (
                                 <Link
                                   href={el.href}
-                                  className={css}
                                   key={i}
                                   onClick={() => {
                                     setCat(el.cat);
@@ -150,7 +186,7 @@ const links = [
   {
     case: "faces",
     sublinks: [
-      { href: "/faces", text: "Our faces", cat: "of" },
+      // { href: "/faces", text: "Our faces", cat: "of" },
       {
         href: "/faces",
         text: "Scouted for Agency",

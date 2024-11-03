@@ -112,6 +112,16 @@
   }
 }
 
+@media screen and (max-width: 450px) {
+  .burgerMenu {
+    top: 13px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .burgerMenu {
+    top: 11px;
+  }
+}
 @media screen and (max-width: 400px) {
   /* .social:nth-of-type(1) {
     right: 40px;

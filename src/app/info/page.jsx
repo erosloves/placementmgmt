@@ -19,7 +19,7 @@ export default function Home() {
               href="mailto:casting@placementmgmt.com"
               onMouseOver={(e) => copyHandler(e)}
             >
-              casting@placementmgmt.com
+              egor@placementmgmt.com
             </Link>
             <CopyBtn text={"casting@placementmgmt.com"} isVisible={isCopyBtn} />
           </li>
@@ -43,16 +43,15 @@ export default function Home() {
       <section className={`${css.section} ${css.about}`}>
         <h2>About</h2>
         <p>
-          Placement Managment ... is a pioneer in top-tier talent
-          representation, specialising in the development & management of
-          exceptional creative talent.
+          We are a scouting agency specializing in discovering and placement
+          unique faces for modeling agencies and worldwide brands. our
+          management include: scouting to ma, casting direction and
+          international booking.
         </p>
         <p>
-          We are a scouting agency specializing in the finding and placement
-          unique Faces for modeling agencies and placement for brands around the
-          world Our agency provides scouting services in the form of finding you
-          a modeling agency or Parent Agency services - where placement
-          management acts as your agency
+          We've scouted 50+ model faces. These faces are working now in
+          countries of Asia and Europe. Our faces work with various agencies and
+          MA from different countries
         </p>
       </section>
     </div>

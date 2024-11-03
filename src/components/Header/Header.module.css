@@ -26,6 +26,9 @@
 
 .nav_wrapper {
   position: relative;
+  /* font-family: "Russo One"; */
+
+  font-weight: 100;
 }
 
 .link_wrapper,
@@ -59,7 +62,7 @@
 .link_item_text {
   text-transform: capitalize;
 }
-.sublink_item {
+.nav_wrapper .sublink_item {
   position: absolute;
   z-index: 9;
   top: 40px;
@@ -94,16 +97,20 @@
 .nav_wrapper_touch {
   position: relative;
 }
+.nav_wrapper_touch,
+.nav_wrapper_touch_layout {
+  font-family: "Rubik", sans-serif;
+}
 
 .nav_wrapper_touch_layout {
   position: fixed;
   z-index: 20000;
-  top: 49px;
+  top: 49.5px;
   left: 0;
   display: flex;
   align-items: start;
   flex-direction: column;
-  width: 100vw;
+  width: 50vw;
   height: calc(100vh - 50px);
   background-color: #eee;
 }
@@ -113,29 +120,107 @@
   align-items: start;
   flex-direction: column;
   padding-left: 20px;
+  border-bottom: 1px solid #ccc;
 }
-.nav_wrapper_touch_layout .link_subitem {
+
+.sublink_item_touch {
+  padding-left: 30px !important;
+}
+
+/* .nav_wrapper_touch_layout .link_subitem {
   display: flex;
   padding: inherit;
   padding-top: 0;
-}
+} */
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 560px) {
   .pm {
-    font-size: 35px;
+    font-size: 34px;
     padding: 2.5px 0;
   }
-
   .nav_wrapper_touch_layout {
-    top: 48px;
+    top: 47.5px;
   }
 }
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 520px) {
+  .pm {
+    font-size: 34px;
+    padding: 2.5px 0;
+  }
+}
+@media screen and (max-width: 490px) {
   .pm {
     font-size: 30px;
     padding: 5px 0;
   }
   .nav_wrapper_touch_layout {
-    top: 47px;
+    top: 48px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .pm {
+    font-size: 28px;
+    padding: 5px 0;
+  }
+  .nav_wrapper_touch_layout {
+    top: 48px;
+  }
+  .link_item,
+  .sublink_item {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .pm {
+    font-size: 26px;
+    padding: 5px 0;
+  }
+  .nav_wrapper_touch_layout {
+    top: 48px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .pm {
+    font-size: 24px;
+    padding: 5px 0;
+  }
+  .nav_wrapper_touch_layout {
+    top: 48px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .pm {
+    font-size: 22px;
+    padding: 6px 0;
+  }
+  .nav_wrapper_touch_layout {
+    top: 48px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .pm {
+    font-size: 20px;
+    padding: 7px 0;
+  }
+  .nav_wrapper_touch_layout {
+    top: 48px;
+  }
+}
+@media screen and (max-width: 340px) {
+  .pm {
+    font-size: 18px;
+    padding: 8px 0;
+  }
+  .nav_wrapper_touch_layout {
+    top: 48px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .pm {
+    font-size: 16px;
+    padding: 9px 0;
+  }
+  .nav_wrapper_touch_layout {
+    top: 48px;
   }
 }
