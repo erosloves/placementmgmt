@@ -104,7 +104,7 @@
 
 .nav_wrapper_touch_layout {
   position: fixed;
-  z-index: 20000;
+  z-index: 9;
   top: 49.5px;
   left: 0;
   display: flex;
