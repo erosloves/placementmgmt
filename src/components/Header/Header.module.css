@@ -135,36 +135,36 @@
 
 @media screen and (max-width: 560px) {
   .pm {
-    font-size: 34px;
-    padding: 2.5px 0;
+    font-size: 33px;
+    padding: 4px 0;
   }
-  .nav_wrapper_touch_layout {
+  /* .nav_wrapper_touch_layout {
     top: 47.5px;
-  }
+  } */
 }
-@media screen and (max-width: 520px) {
+/* @media screen and (max-width: 520px) {
   .pm {
     font-size: 34px;
     padding: 2.5px 0;
   }
-}
+} */
 @media screen and (max-width: 490px) {
   .pm {
     font-size: 30px;
-    padding: 5px 0;
+    padding: 6px 0;
   }
-  .nav_wrapper_touch_layout {
+  /* .nav_wrapper_touch_layout {
     top: 48px;
-  }
+  } */
 }
 @media screen and (max-width: 450px) {
   .pm {
     font-size: 28px;
-    padding: 5px 0;
+    padding: 7px 0;
   }
-  .nav_wrapper_touch_layout {
+  /* .nav_wrapper_touch_layout {
     top: 45.5px;
-  }
+  } */
   .link_item,
   .sublink_item {
     font-size: 14px;
@@ -173,45 +173,42 @@
 @media screen and (max-width: 420px) {
   .pm {
     font-size: 26px;
-    padding: 5px 0;
-  }
-  .nav_wrapper_touch_layout {
-    top: 42px;
+    padding: 8px 0;
   }
 }
 @media screen and (max-width: 400px) {
   .pm {
-    font-size: 24px;
-    padding: 5px 0;
+    font-size: 25px;
+    padding: 9px 0;
   }
-  .nav_wrapper_touch_layout {
+  /* .nav_wrapper_touch_layout {
     top: 40px;
-  }
+  } */
 }
 @media screen and (max-width: 380px) {
   .pm {
     font-size: 22px;
-    padding: 6px 0;
+    padding: 11px 0;
   }
 }
 @media screen and (max-width: 360px) {
   .pm {
     font-size: 20px;
-    padding: 7px 0;
+    padding: 12px 0;
   }
 }
 @media screen and (max-width: 340px) {
   .pm {
     font-size: 18px;
-    padding: 8px 0;
+    padding: 13px 0;
   }
-  .nav_wrapper_touch_layout {
+  /* .nav_wrapper_touch_layout {
     top: 39px;
-  }
+  } */
 }
 @media screen and (max-width: 320px) {
   .pm {
-    font-size: 16px;
-    padding: 9px 0;
+    font-size: 17px;
+    padding: 14px 0;
   }
 }
