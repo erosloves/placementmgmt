@@ -24,14 +24,20 @@ const Page = ({ params }) => {
           <div className={css.title}>{dataToRender.title}</div>
           {dataToRender.params &&
             Object.entries(dataToRender.params).map(([key, value]) => {
-              return (
-                <div className={css.param_wrapper}>
-                  {key}:{value}
-                </div>
-              );
+              if (value) {
+                return (
+                  <div className={css.param_wrapper}>
+                    {key}:{value}
+                  </div>
+                );
+              }
             })}
           <div className={css.title}>
-            Scouted for Agency: {dataToRender.byAgency}
+            {dataToRender.byAgency ? (
+              <>Scouted for Agency: {dataToRender.byAgency}</>
+            ) : (
+              <>NEW FACE</>
+            )}
           </div>
 
           {dataToRender.www && <a href={dataToRender.www}>website</a>}

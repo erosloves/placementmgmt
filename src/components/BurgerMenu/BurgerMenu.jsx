@@ -1,7 +1,6 @@
 "use client";
-import Link from "next/link";
+
 import styles from "./BurgerMenu.module.css";
-import { useState } from "react";
 
 const BurgerMenu = ({ state }) => {
   const { burgerOpen, setBurgerOpen } = state;
